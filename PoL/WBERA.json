@@ -1,12 +1,20 @@
 [
   {
-    "type": "constructor",
-    "inputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
     "type": "receive",
     "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "DOMAIN_SEPARATOR",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "result",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -25,7 +33,7 @@
     ],
     "outputs": [
       {
-        "name": "",
+        "name": "result",
         "type": "uint256",
         "internalType": "uint256"
       }
@@ -42,7 +50,7 @@
         "internalType": "address"
       },
       {
-        "name": "value",
+        "name": "amount",
         "type": "uint256",
         "internalType": "uint256"
       }
@@ -61,14 +69,14 @@
     "name": "balanceOf",
     "inputs": [
       {
-        "name": "account",
+        "name": "owner",
         "type": "address",
         "internalType": "address"
       }
     ],
     "outputs": [
       {
-        "name": "",
+        "name": "result",
         "type": "uint256",
         "internalType": "uint256"
       }
@@ -110,6 +118,68 @@
   },
   {
     "type": "function",
+    "name": "nonces",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "result",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "permit",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "spender",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "value",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "deadline",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "v",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "r",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "s",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
     "name": "symbol",
     "inputs": [],
     "outputs": [
@@ -127,7 +197,7 @@
     "inputs": [],
     "outputs": [
       {
-        "name": "",
+        "name": "result",
         "type": "uint256",
         "internalType": "uint256"
       }
@@ -144,7 +214,7 @@
         "internalType": "address"
       },
       {
-        "name": "value",
+        "name": "amount",
         "type": "uint256",
         "internalType": "uint256"
       }
@@ -173,7 +243,7 @@
         "internalType": "address"
       },
       {
-        "name": "value",
+        "name": "amount",
         "type": "uint256",
         "internalType": "uint256"
       }
@@ -217,7 +287,7 @@
         "internalType": "address"
       },
       {
-        "name": "value",
+        "name": "amount",
         "type": "uint256",
         "indexed": false,
         "internalType": "uint256"
@@ -261,7 +331,7 @@
         "internalType": "address"
       },
       {
-        "name": "value",
+        "name": "amount",
         "type": "uint256",
         "indexed": false,
         "internalType": "uint256"
@@ -290,88 +360,42 @@
   },
   {
     "type": "error",
-    "name": "ERC20InsufficientAllowance",
-    "inputs": [
-      {
-        "name": "spender",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "allowance",
-        "type": "uint256",
-        "internalType": "uint256"
-      },
-      {
-        "name": "needed",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ]
+    "name": "AllowanceOverflow",
+    "inputs": []
   },
   {
     "type": "error",
-    "name": "ERC20InsufficientBalance",
-    "inputs": [
-      {
-        "name": "sender",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "balance",
-        "type": "uint256",
-        "internalType": "uint256"
-      },
-      {
-        "name": "needed",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ]
+    "name": "AllowanceUnderflow",
+    "inputs": []
   },
   {
     "type": "error",
-    "name": "ERC20InvalidApprover",
-    "inputs": [
-      {
-        "name": "approver",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
+    "name": "ETHTransferFailed",
+    "inputs": []
   },
   {
     "type": "error",
-    "name": "ERC20InvalidReceiver",
-    "inputs": [
-      {
-        "name": "receiver",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
+    "name": "InsufficientAllowance",
+    "inputs": []
   },
   {
     "type": "error",
-    "name": "ERC20InvalidSender",
-    "inputs": [
-      {
-        "name": "sender",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
+    "name": "InsufficientBalance",
+    "inputs": []
   },
   {
     "type": "error",
-    "name": "ERC20InvalidSpender",
-    "inputs": [
-      {
-        "name": "spender",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
+    "name": "InvalidPermit",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PermitExpired",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "TotalSupplyOverflow",
+    "inputs": []
   }
 ]
