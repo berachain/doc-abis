@@ -1,0 +1,557 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "dex",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "acceptsCrocAuthority",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "name": "dex_",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "emergencyAuthority_",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "emergencyHalt",
+    "inputs": [
+      {
+        "name": "minion",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "reason",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "emergencyReset",
+    "inputs": [
+      {
+        "name": "conduit",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "proxyPath",
+        "type": "uint16",
+        "internalType": "uint16"
+      },
+      {
+        "name": "reason",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "forcePolicy",
+    "inputs": [
+      {
+        "name": "conduit",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "proxyPath",
+        "type": "uint16",
+        "internalType": "uint16"
+      },
+      {
+        "name": "policy",
+        "type": "tuple",
+        "internalType": "struct CrocPolicy.PolicyRule",
+        "components": [
+          {
+            "name": "cmdFlags_",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "mandateTime_",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "expiryOffset_",
+            "type": "uint32",
+            "internalType": "uint32"
+          }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "invokePolicy",
+    "inputs": [
+      {
+        "name": "minion",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "proxyPath",
+        "type": "uint16",
+        "internalType": "uint16"
+      },
+      {
+        "name": "cmd",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "opsAuthority_",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "opsResolution",
+    "inputs": [
+      {
+        "name": "minion",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "proxyPath",
+        "type": "uint16",
+        "internalType": "uint16"
+      },
+      {
+        "name": "cmd",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "passesPolicy",
+    "inputs": [
+      {
+        "name": "policy",
+        "type": "tuple",
+        "internalType": "struct CrocPolicy.PolicyRule",
+        "components": [
+          {
+            "name": "cmdFlags_",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "mandateTime_",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "expiryOffset_",
+            "type": "uint32",
+            "internalType": "uint32"
+          }
+        ]
+      },
+      {
+        "name": "protocolCmd",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "rules_",
+    "inputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cmdFlags_",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "mandateTime_",
+        "type": "uint32",
+        "internalType": "uint32"
+      },
+      {
+        "name": "expiryOffset_",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "setPolicy",
+    "inputs": [
+      {
+        "name": "conduit",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "proxyPath",
+        "type": "uint16",
+        "internalType": "uint16"
+      },
+      {
+        "name": "policy",
+        "type": "tuple",
+        "internalType": "struct CrocPolicy.PolicyRule",
+        "components": [
+          {
+            "name": "cmdFlags_",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "mandateTime_",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "expiryOffset_",
+            "type": "uint32",
+            "internalType": "uint32"
+          }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "transferGovernance",
+    "inputs": [
+      {
+        "name": "ops",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "treasury",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "emergency",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "treasuryAuthority_",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "treasuryResolution",
+    "inputs": [
+      {
+        "name": "minion",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "proxyPath",
+        "type": "uint16",
+        "internalType": "uint16"
+      },
+      {
+        "name": "cmd",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "sudo",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "CrocEmergencyHalt",
+    "inputs": [
+      {
+        "name": "minion",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "reason",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "CrocGovernAuthority",
+    "inputs": [
+      {
+        "name": "ops",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "treasury",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "emergency",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "CrocPolicyEmergency",
+    "inputs": [
+      {
+        "name": "conduit",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "reason",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "CrocPolicyForce",
+    "inputs": [
+      {
+        "name": "conduit",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "proxyPath",
+        "type": "uint16",
+        "indexed": false,
+        "internalType": "uint16"
+      },
+      {
+        "name": "",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct CrocPolicy.PolicyRule",
+        "components": [
+          {
+            "name": "cmdFlags_",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "mandateTime_",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "expiryOffset_",
+            "type": "uint32",
+            "internalType": "uint32"
+          }
+        ]
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "CrocPolicySet",
+    "inputs": [
+      {
+        "name": "conduit",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "proxyPath",
+        "type": "uint16",
+        "indexed": false,
+        "internalType": "uint16"
+      },
+      {
+        "name": "",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct CrocPolicy.PolicyRule",
+        "components": [
+          {
+            "name": "cmdFlags_",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "mandateTime_",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "expiryOffset_",
+            "type": "uint32",
+            "internalType": "uint32"
+          }
+        ]
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "CrocResolutionOps",
+    "inputs": [
+      {
+        "name": "minion",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "cmd",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "CrocResolutionTreasury",
+    "inputs": [
+      {
+        "name": "minion",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "sudo",
+        "type": "bool",
+        "indexed": false,
+        "internalType": "bool"
+      },
+      {
+        "name": "cmd",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      }
+    ],
+    "anonymous": false
+  }
+]

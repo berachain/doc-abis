@@ -764,7 +764,7 @@
   },
   {
     "type": "error",
-    "name": "DelegateStakedOverflow",
+    "name": "DonateAmountLessThanPayoutAmount",
     "inputs": []
   },
   {
@@ -850,7 +850,7 @@
   },
   {
     "type": "error",
-    "name": "NoWhitelistedTokens",
+    "name": "MinIncentiveRateIsZero",
     "inputs": []
   },
   {
@@ -983,6 +983,11 @@
   {
     "type": "error",
     "name": "RewardCycleStarted",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "RewardsDurationIsZero",
     "inputs": []
   },
   {
