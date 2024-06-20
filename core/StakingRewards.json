@@ -1,6 +1,32 @@
 [
   {
     "type": "function",
+    "name": "REWARD_TOKEN",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IERC20"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "STAKE_TOKEN",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IERC20"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "balanceOf",
     "inputs": [
       {
@@ -65,7 +91,91 @@
   },
   {
     "type": "function",
+    "name": "lastUpdateTime",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "periodFinish",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "rewardPerToken",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "rewardPerTokenStored",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "rewardRate",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "rewards",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "rewardsDuration",
     "inputs": [],
     "outputs": [
       {
@@ -88,6 +198,51 @@
       }
     ],
     "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "undistributedRewards",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "userRewardPerTokenPaid",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "event",
+    "name": "Initialized",
+    "inputs": [
+      {
+        "name": "version",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      }
+    ],
+    "anonymous": false
   },
   {
     "type": "event",
@@ -180,52 +335,7 @@
   },
   {
     "type": "error",
-    "name": "AlreadyInitialized",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "AmountLessThanMinIncentiveRate",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "BlockDoesNotExist",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "BlockNotInBuffer",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "CannotRecoverRewardToken",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "CannotRecoverStakingToken",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "DelegateStakedOverflow",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "InsolventReward",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "InsufficientDelegateStake",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "InsufficientSelfStake",
     "inputs": []
   },
   {
@@ -235,137 +345,12 @@
   },
   {
     "type": "error",
-    "name": "InvalidCommission",
+    "name": "InvalidInitialization",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "InvalidCuttingBoardWeights",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "InvalidMaxIncentiveTokensCount",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "InvalidMinter",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "InvalidStartBlock",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "InvariantCheckFailed",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "MaxNumWeightsPerCuttingBoardIsZero",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NoWhitelistedTokens",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotActionableBlock",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotApprovedSender",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotBGT",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotBlockRewardController",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotDelegate",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotDistributor",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotEnoughBalance",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotEnoughTime",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotFeeCollector",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotFriendOfTheChef",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotGovernance",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotOperator",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotProver",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotRootFollower",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotValidatorOrOperator",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "PayoutAmountIsZero",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "PayoutTokenIsZero",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "QueuedCuttingBoardNotFound",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "QueuedCuttingBoardNotReady",
+    "name": "NotInitializing",
     "inputs": []
   },
   {
@@ -375,7 +360,7 @@
   },
   {
     "type": "error",
-    "name": "RewardCycleStarted",
+    "name": "RewardsDurationIsZero",
     "inputs": []
   },
   {
@@ -385,48 +370,12 @@
   },
   {
     "type": "error",
-    "name": "TokenAlreadyWhitelistedOrLimitReached",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "TokenNotWhitelisted",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "TooManyWeights",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "TotalSupplyOverflow",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "Unauthorized",
-    "inputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "VaultAlreadyExists",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "WithdrawAmountIsZero",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "ZeroAddress",
     "inputs": []
   }
 ]

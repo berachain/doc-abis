@@ -130,6 +130,19 @@
   },
   {
     "type": "function",
+    "name": "factory",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "initialize",
     "inputs": [
       {
@@ -138,7 +151,7 @@
         "internalType": "address"
       },
       {
-        "name": "_vaultAdmin",
+        "name": "_factory",
         "type": "address",
         "internalType": "address"
       }
@@ -383,19 +396,6 @@
     "stateMutability": "payable"
   },
   {
-    "type": "function",
-    "name": "vaultAdmin",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
     "type": "event",
     "name": "Approval",
     "inputs": [
@@ -597,12 +597,12 @@
   },
   {
     "type": "error",
-    "name": "NotInitializing",
+    "name": "NotFactory",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotVaultAdmin",
+    "name": "NotInitializing",
     "inputs": []
   },
   {
