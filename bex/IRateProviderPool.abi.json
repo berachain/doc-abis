@@ -1,0 +1,15 @@
+[
+  {
+    "type": "function",
+    "name": "getRateProviders",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]",
+        "internalType": "contract IRateProvider[]"
+      }
+    ],
+    "stateMutability": "view"
+  }
+]
