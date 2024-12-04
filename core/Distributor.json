@@ -4,14 +4,29 @@
     "name": "distributeFor",
     "inputs": [
       {
-        "name": "coinbase",
-        "type": "address",
-        "internalType": "address"
+        "name": "nextTimestamp",
+        "type": "uint64",
+        "internalType": "uint64"
       },
       {
-        "name": "blockNumber",
-        "type": "uint256",
-        "internalType": "uint256"
+        "name": "proposerIndex",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "pubkey",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "proposerIndexProof",
+        "type": "bytes32[]",
+        "internalType": "bytes32[]"
+      },
+      {
+        "name": "pubkeyProof",
+        "type": "bytes32[]",
+        "internalType": "bytes32[]"
       }
     ],
     "outputs": [],
@@ -22,16 +37,16 @@
     "name": "Distributed",
     "inputs": [
       {
-        "name": "valCoinbase",
-        "type": "address",
+        "name": "valPubkey",
+        "type": "bytes",
         "indexed": true,
-        "internalType": "address"
+        "internalType": "bytes"
       },
       {
-        "name": "blockNumber",
-        "type": "uint256",
+        "name": "nextTimestamp",
+        "type": "uint64",
         "indexed": true,
-        "internalType": "uint256"
+        "internalType": "uint64"
       },
       {
         "name": "receiver",
@@ -60,12 +75,7 @@
   },
   {
     "type": "error",
-    "name": "BlockDoesNotExist",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "BlockNotInBuffer",
+    "name": "CannotRecoverIncentiveToken",
     "inputs": []
   },
   {
@@ -80,7 +90,27 @@
   },
   {
     "type": "error",
-    "name": "DelegateStakedOverflow",
+    "name": "DepositNotMultipleOfGwei",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "DepositValueTooHigh",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "DonateAmountLessThanPayoutAmount",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "IncentiveRateTooHigh",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "IndexOutOfRange",
     "inputs": []
   },
   {
@@ -95,6 +125,11 @@
   },
   {
     "type": "error",
+    "name": "InsufficientDeposit",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InsufficientSelfStake",
     "inputs": []
   },
@@ -105,12 +140,27 @@
   },
   {
     "type": "error",
-    "name": "InvalidCommission",
+    "name": "InvalidActivateBoostDelay",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "InvalidCuttingBoardWeights",
+    "name": "InvalidBaseRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidBoostMultiplier",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidCredentialsLength",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidDropBoostDelay",
     "inputs": []
   },
   {
@@ -120,7 +170,42 @@
   },
   {
     "type": "error",
-    "name": "InvalidMinter",
+    "name": "InvalidMinBoostedRewardRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidProof",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidPubKeyLength",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardAllocationWeights",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardConvexity",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardVaultAddress",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidSignatureLength",
     "inputs": []
   },
   {
@@ -130,22 +215,27 @@
   },
   {
     "type": "error",
+    "name": "InvalidateDefaultRewardAllocation",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvariantCheckFailed",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "MaxNumWeightsPerCuttingBoardIsZero",
+    "name": "MaxNumWeightsPerRewardAllocationIsZero",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NoWhitelistedTokens",
+    "name": "MinIncentiveRateIsZero",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotActionableBlock",
+    "name": "NotAContract",
     "inputs": []
   },
   {
@@ -180,7 +270,17 @@
   },
   {
     "type": "error",
+    "name": "NotEnoughBoostedBalance",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "NotEnoughTime",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotFactoryVault",
     "inputs": []
   },
   {
@@ -190,12 +290,17 @@
   },
   {
     "type": "error",
-    "name": "NotFriendOfTheChef",
+    "name": "NotGovernance",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotGovernance",
+    "name": "NotIncentiveManager",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotNewOperator",
     "inputs": []
   },
   {
@@ -205,17 +310,17 @@
   },
   {
     "type": "error",
-    "name": "NotProver",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "NotRootFollower",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotValidatorOrOperator",
+    "name": "NotWhitelistedVault",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "OperatorAlreadySet",
     "inputs": []
   },
   {
@@ -225,17 +330,12 @@
   },
   {
     "type": "error",
-    "name": "PayoutTokenIsZero",
+    "name": "RewardAllocationAlreadyQueued",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "QueuedCuttingBoardNotFound",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "QueuedCuttingBoardNotReady",
+    "name": "RewardAllocationBlockDelayTooLarge",
     "inputs": []
   },
   {
@@ -245,12 +345,17 @@
   },
   {
     "type": "error",
-    "name": "RewardCycleStarted",
+    "name": "RewardsDurationIsZero",
     "inputs": []
   },
   {
     "type": "error",
     "name": "StakeAmountIsZero",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "TimestampAlreadyProcessed",
     "inputs": []
   },
   {
@@ -275,17 +380,6 @@
   },
   {
     "type": "error",
-    "name": "Unauthorized",
-    "inputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
     "name": "VaultAlreadyExists",
     "inputs": []
   },
@@ -297,6 +391,16 @@
   {
     "type": "error",
     "name": "ZeroAddress",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ZeroOperatorOnFirstDeposit",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ZeroPercentageWeight",
     "inputs": []
   }
 ]

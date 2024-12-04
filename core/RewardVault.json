@@ -112,7 +112,13 @@
   {
     "type": "function",
     "name": "exit",
-    "inputs": [],
+    "inputs": [
+      {
+        "name": "recipient",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
     "outputs": [],
     "stateMutability": "nonpayable"
   },
@@ -146,6 +152,11 @@
     "inputs": [
       {
         "name": "account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "recipient",
         "type": "address",
         "internalType": "address"
       }
@@ -260,12 +271,25 @@
   },
   {
     "type": "function",
+    "name": "lastUpdateTime",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "notifyRewardAmount",
     "inputs": [
       {
-        "name": "coinbase",
-        "type": "address",
-        "internalType": "address"
+        "name": "pubkey",
+        "type": "bytes",
+        "internalType": "bytes"
       },
       {
         "name": "reward",
@@ -298,15 +322,22 @@
   {
     "type": "function",
     "name": "pause",
-    "inputs": [
-      {
-        "name": "_paused",
-        "type": "bool",
-        "internalType": "bool"
-      }
-    ],
+    "inputs": [],
     "outputs": [],
     "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "periodFinish",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -342,6 +373,64 @@
   {
     "type": "function",
     "name": "rewardPerToken",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "rewardPerTokenStored",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "rewardRate",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "rewards",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "rewardsDuration",
     "inputs": [],
     "outputs": [
       {
@@ -432,6 +521,63 @@
   },
   {
     "type": "function",
+    "name": "undistributedRewards",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "unpause",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "updateIncentiveManager",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "newManager",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "userRewardPerTokenPaid",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "whitelistIncentiveToken",
     "inputs": [
       {
@@ -443,6 +589,11 @@
         "name": "minIncentiveRate",
         "type": "uint256",
         "internalType": "uint256"
+      },
+      {
+        "name": "manager",
+        "type": "address",
+        "internalType": "address"
       }
     ],
     "outputs": [],
@@ -557,6 +708,31 @@
   },
   {
     "type": "event",
+    "name": "IncentiveManagerChanged",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newManager",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "oldManager",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
     "name": "IncentiveTokenRemoved",
     "inputs": [
       {
@@ -583,6 +759,43 @@
         "type": "uint256",
         "indexed": false,
         "internalType": "uint256"
+      },
+      {
+        "name": "manager",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "IncentivesProcessFailed",
+    "inputs": [
+      {
+        "name": "pubkey",
+        "type": "bytes",
+        "indexed": true,
+        "internalType": "bytes"
+      },
+      {
+        "name": "token",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "bgtEmitted",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
       }
     ],
     "anonymous": false
@@ -592,10 +805,10 @@
     "name": "IncentivesProcessed",
     "inputs": [
       {
-        "name": "coinbase",
-        "type": "address",
+        "name": "pubkey",
+        "type": "bytes",
         "indexed": true,
-        "internalType": "address"
+        "internalType": "bytes"
       },
       {
         "name": "token",
@@ -770,12 +983,7 @@
   },
   {
     "type": "error",
-    "name": "BlockDoesNotExist",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "BlockNotInBuffer",
+    "name": "CannotRecoverIncentiveToken",
     "inputs": []
   },
   {
@@ -790,7 +998,27 @@
   },
   {
     "type": "error",
-    "name": "DelegateStakedOverflow",
+    "name": "DepositNotMultipleOfGwei",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "DepositValueTooHigh",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "DonateAmountLessThanPayoutAmount",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "IncentiveRateTooHigh",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "IndexOutOfRange",
     "inputs": []
   },
   {
@@ -805,6 +1033,11 @@
   },
   {
     "type": "error",
+    "name": "InsufficientDeposit",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InsufficientSelfStake",
     "inputs": []
   },
@@ -815,12 +1048,27 @@
   },
   {
     "type": "error",
-    "name": "InvalidCommission",
+    "name": "InvalidActivateBoostDelay",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "InvalidCuttingBoardWeights",
+    "name": "InvalidBaseRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidBoostMultiplier",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidCredentialsLength",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidDropBoostDelay",
     "inputs": []
   },
   {
@@ -830,7 +1078,42 @@
   },
   {
     "type": "error",
-    "name": "InvalidMinter",
+    "name": "InvalidMinBoostedRewardRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidProof",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidPubKeyLength",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardAllocationWeights",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardConvexity",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardVaultAddress",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidSignatureLength",
     "inputs": []
   },
   {
@@ -840,22 +1123,27 @@
   },
   {
     "type": "error",
+    "name": "InvalidateDefaultRewardAllocation",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvariantCheckFailed",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "MaxNumWeightsPerCuttingBoardIsZero",
+    "name": "MaxNumWeightsPerRewardAllocationIsZero",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NoWhitelistedTokens",
+    "name": "MinIncentiveRateIsZero",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotActionableBlock",
+    "name": "NotAContract",
     "inputs": []
   },
   {
@@ -890,7 +1178,17 @@
   },
   {
     "type": "error",
+    "name": "NotEnoughBoostedBalance",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "NotEnoughTime",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotFactoryVault",
     "inputs": []
   },
   {
@@ -900,12 +1198,17 @@
   },
   {
     "type": "error",
-    "name": "NotFriendOfTheChef",
+    "name": "NotGovernance",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotGovernance",
+    "name": "NotIncentiveManager",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotNewOperator",
     "inputs": []
   },
   {
@@ -915,17 +1218,17 @@
   },
   {
     "type": "error",
-    "name": "NotProver",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "NotRootFollower",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotValidatorOrOperator",
+    "name": "NotWhitelistedVault",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "OperatorAlreadySet",
     "inputs": []
   },
   {
@@ -935,17 +1238,12 @@
   },
   {
     "type": "error",
-    "name": "PayoutTokenIsZero",
+    "name": "RewardAllocationAlreadyQueued",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "QueuedCuttingBoardNotFound",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "QueuedCuttingBoardNotReady",
+    "name": "RewardAllocationBlockDelayTooLarge",
     "inputs": []
   },
   {
@@ -955,12 +1253,17 @@
   },
   {
     "type": "error",
-    "name": "RewardCycleStarted",
+    "name": "RewardsDurationIsZero",
     "inputs": []
   },
   {
     "type": "error",
     "name": "StakeAmountIsZero",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "TimestampAlreadyProcessed",
     "inputs": []
   },
   {
@@ -985,17 +1288,6 @@
   },
   {
     "type": "error",
-    "name": "Unauthorized",
-    "inputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
     "name": "VaultAlreadyExists",
     "inputs": []
   },
@@ -1007,6 +1299,16 @@
   {
     "type": "error",
     "name": "ZeroAddress",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ZeroOperatorOnFirstDeposit",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ZeroPercentageWeight",
     "inputs": []
   }
 ]

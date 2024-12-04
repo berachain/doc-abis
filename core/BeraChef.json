@@ -1,35 +1,12 @@
 [
   {
-    "type": "constructor",
-    "inputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
     "type": "function",
-    "name": "UPGRADE_INTERFACE_VERSION",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "string",
-        "internalType": "string"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "activateQueuedCuttingBoard",
+    "name": "activateReadyQueuedRewardAllocation",
     "inputs": [
       {
-        "name": "valCoinbase",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "blockNumber",
-        "type": "uint256",
-        "internalType": "uint256"
+        "name": "valPubkey",
+        "type": "bytes",
+        "internalType": "bytes"
       }
     ],
     "outputs": [],
@@ -37,58 +14,19 @@
   },
   {
     "type": "function",
-    "name": "cuttingBoardBlockDelay",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint64",
-        "internalType": "uint64"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "defaultCuttingBoard",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "startBlock",
-        "type": "uint64",
-        "internalType": "uint64"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "distributor",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "getActiveCuttingBoard",
+    "name": "getActiveRewardAllocation",
     "inputs": [
       {
-        "name": "valCoinbase",
-        "type": "address",
-        "internalType": "address"
+        "name": "valPubkey",
+        "type": "bytes",
+        "internalType": "bytes"
       }
     ],
     "outputs": [
       {
         "name": "",
         "type": "tuple",
-        "internalType": "struct IBeraChef.CuttingBoard",
+        "internalType": "struct IBeraChef.RewardAllocation",
         "components": [
           {
             "name": "startBlock",
@@ -119,13 +57,13 @@
   },
   {
     "type": "function",
-    "name": "getDefaultCuttingBoard",
+    "name": "getDefaultRewardAllocation",
     "inputs": [],
     "outputs": [
       {
         "name": "",
         "type": "tuple",
-        "internalType": "struct IBeraChef.CuttingBoard",
+        "internalType": "struct IBeraChef.RewardAllocation",
         "components": [
           {
             "name": "startBlock",
@@ -156,38 +94,19 @@
   },
   {
     "type": "function",
-    "name": "getOperator",
+    "name": "getQueuedRewardAllocation",
     "inputs": [
       {
-        "name": "valCoinbase",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "getQueuedCuttingBoard",
-    "inputs": [
-      {
-        "name": "valCoinbase",
-        "type": "address",
-        "internalType": "address"
+        "name": "valPubkey",
+        "type": "bytes",
+        "internalType": "bytes"
       }
     ],
     "outputs": [
       {
         "name": "",
         "type": "tuple",
-        "internalType": "struct IBeraChef.CuttingBoard",
+        "internalType": "struct IBeraChef.RewardAllocation",
         "components": [
           {
             "name": "startBlock",
@@ -218,54 +137,55 @@
   },
   {
     "type": "function",
-    "name": "initialize",
+    "name": "getSetActiveRewardAllocation",
     "inputs": [
       {
-        "name": "_distributor",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "_governance",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "_maxNumWeightsPerCuttingBoard",
-        "type": "uint8",
-        "internalType": "uint8"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "isFriendOfTheChef",
-    "inputs": [
-      {
-        "name": "receiver",
-        "type": "address",
-        "internalType": "address"
+        "name": "valPubkey",
+        "type": "bytes",
+        "internalType": "bytes"
       }
     ],
     "outputs": [
       {
         "name": "",
-        "type": "bool",
-        "internalType": "bool"
+        "type": "tuple",
+        "internalType": "struct IBeraChef.RewardAllocation",
+        "components": [
+          {
+            "name": "startBlock",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "weights",
+            "type": "tuple[]",
+            "internalType": "struct IBeraChef.Weight[]",
+            "components": [
+              {
+                "name": "receiver",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "percentageNumerator",
+                "type": "uint96",
+                "internalType": "uint96"
+              }
+            ]
+          }
+        ]
       }
     ],
     "stateMutability": "view"
   },
   {
     "type": "function",
-    "name": "isQueuedCuttingBoardReady",
+    "name": "isQueuedRewardAllocationReady",
     "inputs": [
       {
-        "name": "valCoinbase",
-        "type": "address",
-        "internalType": "address"
+        "name": "valPubkey",
+        "type": "bytes",
+        "internalType": "bytes"
       },
       {
         "name": "blockNumber",
@@ -297,219 +217,152 @@
   },
   {
     "type": "function",
-    "name": "maxNumWeightsPerCuttingBoard",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint8",
-        "internalType": "uint8"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "owner",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "proxiableUUID",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "bytes32",
-        "internalType": "bytes32"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "queueNewCuttingBoard",
+    "name": "queueNewRewardAllocation",
     "inputs": [
       {
-        "name": "valCoinbase",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "startBlock",
-        "type": "uint64",
-        "internalType": "uint64"
-      },
-      {
-        "name": "weights",
-        "type": "tuple[]",
-        "internalType": "struct IBeraChef.Weight[]",
-        "components": [
-          {
-            "name": "receiver",
-            "type": "address",
-            "internalType": "address"
-          },
-          {
-            "name": "percentageNumerator",
-            "type": "uint96",
-            "internalType": "uint96"
-          }
-        ]
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "renounceOwnership",
-    "inputs": [],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "setCuttingBoardBlockDelay",
-    "inputs": [
-      {
-        "name": "_cuttingBoardBlockDelay",
-        "type": "uint64",
-        "internalType": "uint64"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "setDefaultCuttingBoard",
-    "inputs": [
-      {
-        "name": "cb",
-        "type": "tuple",
-        "internalType": "struct IBeraChef.CuttingBoard",
-        "components": [
-          {
-            "name": "startBlock",
-            "type": "uint64",
-            "internalType": "uint64"
-          },
-          {
-            "name": "weights",
-            "type": "tuple[]",
-            "internalType": "struct IBeraChef.Weight[]",
-            "components": [
-              {
-                "name": "receiver",
-                "type": "address",
-                "internalType": "address"
-              },
-              {
-                "name": "percentageNumerator",
-                "type": "uint96",
-                "internalType": "uint96"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "setMaxNumWeightsPerCuttingBoard",
-    "inputs": [
-      {
-        "name": "_maxNumWeightsPerCuttingBoard",
-        "type": "uint8",
-        "internalType": "uint8"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "setOperator",
-    "inputs": [
-      {
-        "name": "operatorAddress",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "transferOwnership",
-    "inputs": [
-      {
-        "name": "newOwner",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "updateFriendsOfTheChef",
-    "inputs": [
-      {
-        "name": "receiver",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "isFriend",
-        "type": "bool",
-        "internalType": "bool"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "upgradeToAndCall",
-    "inputs": [
-      {
-        "name": "newImplementation",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "data",
+        "name": "valPubkey",
         "type": "bytes",
         "internalType": "bytes"
+      },
+      {
+        "name": "startBlock",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "weights",
+        "type": "tuple[]",
+        "internalType": "struct IBeraChef.Weight[]",
+        "components": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "percentageNumerator",
+            "type": "uint96",
+            "internalType": "uint96"
+          }
+        ]
       }
     ],
     "outputs": [],
-    "stateMutability": "payable"
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setDefaultRewardAllocation",
+    "inputs": [
+      {
+        "name": "rewardAllocation",
+        "type": "tuple",
+        "internalType": "struct IBeraChef.RewardAllocation",
+        "components": [
+          {
+            "name": "startBlock",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "weights",
+            "type": "tuple[]",
+            "internalType": "struct IBeraChef.Weight[]",
+            "components": [
+              {
+                "name": "receiver",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "percentageNumerator",
+                "type": "uint96",
+                "internalType": "uint96"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setMaxNumWeightsPerRewardAllocation",
+    "inputs": [
+      {
+        "name": "_maxNumWeightsPerRewardAllocation",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setRewardAllocationBlockDelay",
+    "inputs": [
+      {
+        "name": "_rewardAllocationBlockDelay",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setVaultWhitelistedStatus",
+    "inputs": [
+      {
+        "name": "receiver",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "isWhitelisted",
+        "type": "bool",
+        "internalType": "bool"
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "updateWhitelistedVaultMetadata",
+    "inputs": [
+      {
+        "name": "receiver",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
   },
   {
     "type": "event",
-    "name": "ActivateCuttingBoard",
+    "name": "ActivateRewardAllocation",
     "inputs": [
       {
-        "name": "valCoinbase",
-        "type": "address",
+        "name": "valPubkey",
+        "type": "bytes",
         "indexed": true,
-        "internalType": "address"
+        "internalType": "bytes"
       },
       {
         "name": "startBlock",
@@ -540,55 +393,10 @@
   },
   {
     "type": "event",
-    "name": "CuttingBoardBlockDelaySet",
+    "name": "MaxNumWeightsPerRewardAllocationSet",
     "inputs": [
       {
-        "name": "cuttingBoardBlockDelay",
-        "type": "uint64",
-        "indexed": false,
-        "internalType": "uint64"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "FriendsOfTheChefUpdated",
-    "inputs": [
-      {
-        "name": "receiver",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "isFriend",
-        "type": "bool",
-        "indexed": true,
-        "internalType": "bool"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "Initialized",
-    "inputs": [
-      {
-        "name": "version",
-        "type": "uint64",
-        "indexed": false,
-        "internalType": "uint64"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "MaxNumWeightsPerCuttingBoardSet",
-    "inputs": [
-      {
-        "name": "maxNumWeightsPerCuttingBoard",
+        "name": "maxNumWeightsPerRewardAllocation",
         "type": "uint8",
         "indexed": false,
         "internalType": "uint8"
@@ -598,32 +406,13 @@
   },
   {
     "type": "event",
-    "name": "OwnershipTransferred",
+    "name": "QueueRewardAllocation",
     "inputs": [
       {
-        "name": "previousOwner",
-        "type": "address",
+        "name": "valPubkey",
+        "type": "bytes",
         "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "newOwner",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "QueueCuttingBoard",
-    "inputs": [
-      {
-        "name": "valCoinbase",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
+        "internalType": "bytes"
       },
       {
         "name": "startBlock",
@@ -654,13 +443,26 @@
   },
   {
     "type": "event",
-    "name": "SetDefaultCuttingBoard",
+    "name": "RewardAllocationBlockDelaySet",
     "inputs": [
       {
-        "name": "cuttingBoard",
+        "name": "rewardAllocationBlockDelay",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "SetDefaultRewardAllocation",
+    "inputs": [
+      {
+        "name": "rewardAllocation",
         "type": "tuple",
         "indexed": false,
-        "internalType": "struct IBeraChef.CuttingBoard",
+        "internalType": "struct IBeraChef.RewardAllocation",
         "components": [
           {
             "name": "startBlock",
@@ -691,46 +493,47 @@
   },
   {
     "type": "event",
-    "name": "SetOperator",
+    "name": "VaultWhitelistedStatusUpdated",
     "inputs": [
       {
-        "name": "valCoinbase",
+        "name": "receiver",
         "type": "address",
         "indexed": true,
         "internalType": "address"
       },
       {
-        "name": "operatorAddress",
-        "type": "address",
+        "name": "isWhitelisted",
+        "type": "bool",
         "indexed": true,
-        "internalType": "address"
+        "internalType": "bool"
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
       }
     ],
     "anonymous": false
   },
   {
     "type": "event",
-    "name": "Upgraded",
+    "name": "WhitelistedVaultMetadataUpdated",
     "inputs": [
       {
-        "name": "implementation",
+        "name": "receiver",
         "type": "address",
         "indexed": true,
         "internalType": "address"
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
       }
     ],
     "anonymous": false
-  },
-  {
-    "type": "error",
-    "name": "AddressEmptyCode",
-    "inputs": [
-      {
-        "name": "target",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
   },
   {
     "type": "error",
@@ -744,12 +547,7 @@
   },
   {
     "type": "error",
-    "name": "BlockDoesNotExist",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "BlockNotInBuffer",
+    "name": "CannotRecoverIncentiveToken",
     "inputs": []
   },
   {
@@ -764,28 +562,27 @@
   },
   {
     "type": "error",
+    "name": "DepositNotMultipleOfGwei",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "DepositValueTooHigh",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "DonateAmountLessThanPayoutAmount",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "ERC1967InvalidImplementation",
-    "inputs": [
-      {
-        "name": "implementation",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "ERC1967NonPayable",
+    "name": "IncentiveRateTooHigh",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "FailedInnerCall",
+    "name": "IndexOutOfRange",
     "inputs": []
   },
   {
@@ -800,6 +597,11 @@
   },
   {
     "type": "error",
+    "name": "InsufficientDeposit",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InsufficientSelfStake",
     "inputs": []
   },
@@ -810,17 +612,27 @@
   },
   {
     "type": "error",
-    "name": "InvalidCommission",
+    "name": "InvalidActivateBoostDelay",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "InvalidCuttingBoardWeights",
+    "name": "InvalidBaseRate",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "InvalidInitialization",
+    "name": "InvalidBoostMultiplier",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidCredentialsLength",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidDropBoostDelay",
     "inputs": []
   },
   {
@@ -830,7 +642,42 @@
   },
   {
     "type": "error",
-    "name": "InvalidMinter",
+    "name": "InvalidMinBoostedRewardRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidProof",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidPubKeyLength",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardAllocationWeights",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardConvexity",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardVaultAddress",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidSignatureLength",
     "inputs": []
   },
   {
@@ -840,12 +687,17 @@
   },
   {
     "type": "error",
+    "name": "InvalidateDefaultRewardAllocation",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvariantCheckFailed",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "MaxNumWeightsPerCuttingBoardIsZero",
+    "name": "MaxNumWeightsPerRewardAllocationIsZero",
     "inputs": []
   },
   {
@@ -855,7 +707,7 @@
   },
   {
     "type": "error",
-    "name": "NotActionableBlock",
+    "name": "NotAContract",
     "inputs": []
   },
   {
@@ -890,7 +742,17 @@
   },
   {
     "type": "error",
+    "name": "NotEnoughBoostedBalance",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "NotEnoughTime",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotFactoryVault",
     "inputs": []
   },
   {
@@ -900,17 +762,17 @@
   },
   {
     "type": "error",
-    "name": "NotFriendOfTheChef",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "NotGovernance",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotInitializing",
+    "name": "NotIncentiveManager",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotNewOperator",
     "inputs": []
   },
   {
@@ -920,40 +782,18 @@
   },
   {
     "type": "error",
-    "name": "NotProver",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "NotRootFollower",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotValidatorOrOperator",
+    "name": "NotWhitelistedVault",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "OwnableInvalidOwner",
-    "inputs": [
-      {
-        "name": "owner",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "OwnableUnauthorizedAccount",
-    "inputs": [
-      {
-        "name": "account",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
+    "name": "OperatorAlreadySet",
+    "inputs": []
   },
   {
     "type": "error",
@@ -962,27 +802,17 @@
   },
   {
     "type": "error",
-    "name": "PayoutTokenIsZero",
+    "name": "RewardAllocationAlreadyQueued",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "QueuedCuttingBoardNotFound",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "QueuedCuttingBoardNotReady",
+    "name": "RewardAllocationBlockDelayTooLarge",
     "inputs": []
   },
   {
     "type": "error",
     "name": "RewardCycleNotEnded",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "RewardCycleStarted",
     "inputs": []
   },
   {
@@ -993,6 +823,11 @@
   {
     "type": "error",
     "name": "StakeAmountIsZero",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "TimestampAlreadyProcessed",
     "inputs": []
   },
   {
@@ -1017,33 +852,6 @@
   },
   {
     "type": "error",
-    "name": "UUPSUnauthorizedCallContext",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "UUPSUnsupportedProxiableUUID",
-    "inputs": [
-      {
-        "name": "slot",
-        "type": "bytes32",
-        "internalType": "bytes32"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "Unauthorized",
-    "inputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
     "name": "VaultAlreadyExists",
     "inputs": []
   },
@@ -1055,6 +863,16 @@
   {
     "type": "error",
     "name": "ZeroAddress",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ZeroOperatorOnFirstDeposit",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ZeroPercentageWeight",
     "inputs": []
   }
 ]
