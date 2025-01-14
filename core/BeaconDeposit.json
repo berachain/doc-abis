@@ -1,32 +1,90 @@
 [
   {
     "type": "function",
-    "name": "distributeFor",
+    "name": "acceptOperatorChange",
     "inputs": [
       {
-        "name": "nextTimestamp",
-        "type": "uint64",
-        "internalType": "uint64"
-      },
+        "name": "pubkey",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "cancelOperatorChange",
+    "inputs": [
       {
-        "name": "proposerIndex",
-        "type": "uint64",
-        "internalType": "uint64"
-      },
+        "name": "pubkey",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "deposit",
+    "inputs": [
       {
         "name": "pubkey",
         "type": "bytes",
         "internalType": "bytes"
       },
       {
-        "name": "proposerIndexProof",
-        "type": "bytes32[]",
-        "internalType": "bytes32[]"
+        "name": "credentials",
+        "type": "bytes",
+        "internalType": "bytes"
       },
       {
-        "name": "pubkeyProof",
-        "type": "bytes32[]",
-        "internalType": "bytes32[]"
+        "name": "signature",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "operator",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "getOperator",
+    "inputs": [
+      {
+        "name": "pubkey",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "requestOperatorChange",
+    "inputs": [
+      {
+        "name": "pubkey",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "newOperator",
+        "type": "address",
+        "internalType": "address"
       }
     ],
     "outputs": [],
@@ -34,31 +92,106 @@
   },
   {
     "type": "event",
-    "name": "Distributed",
+    "name": "Deposit",
     "inputs": [
       {
-        "name": "valPubkey",
+        "name": "pubkey",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      },
+      {
+        "name": "credentials",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      },
+      {
+        "name": "amount",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "signature",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      },
+      {
+        "name": "index",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "OperatorChangeCancelled",
+    "inputs": [
+      {
+        "name": "pubkey",
+        "type": "bytes",
+        "indexed": true,
+        "internalType": "bytes"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "OperatorChangeQueued",
+    "inputs": [
+      {
+        "name": "pubkey",
         "type": "bytes",
         "indexed": true,
         "internalType": "bytes"
       },
       {
-        "name": "nextTimestamp",
-        "type": "uint64",
-        "indexed": true,
-        "internalType": "uint64"
-      },
-      {
-        "name": "receiver",
+        "name": "queuedOperator",
         "type": "address",
-        "indexed": true,
+        "indexed": false,
         "internalType": "address"
       },
       {
-        "name": "amount",
+        "name": "currentOperator",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "queuedTimestamp",
         "type": "uint256",
         "indexed": false,
         "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "OperatorUpdated",
+    "inputs": [
+      {
+        "name": "pubkey",
+        "type": "bytes",
+        "indexed": true,
+        "internalType": "bytes"
+      },
+      {
+        "name": "newOperator",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "previousOperator",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
       }
     ],
     "anonymous": false

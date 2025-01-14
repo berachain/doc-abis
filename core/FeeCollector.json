@@ -1,33 +1,15 @@
 [
   {
-    "type": "constructor",
-    "inputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "UPGRADE_INTERFACE_VERSION",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "string",
-        "internalType": "string"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
     "type": "function",
     "name": "claimFees",
     "inputs": [
       {
-        "name": "_recipient",
+        "name": "recipient",
         "type": "address",
         "internalType": "address"
       },
       {
-        "name": "_feeTokens",
+        "name": "feeTokens",
         "type": "address[]",
         "internalType": "address[]"
       }
@@ -50,44 +32,10 @@
   },
   {
     "type": "function",
-    "name": "initialize",
-    "inputs": [
-      {
-        "name": "governance",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "_payoutToken",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "_rewardReceiver",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "_payoutAmount",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
+    "name": "pause",
+    "inputs": [],
     "outputs": [],
     "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "owner",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -117,23 +65,29 @@
   },
   {
     "type": "function",
-    "name": "proxiableUUID",
+    "name": "queuePayoutAmountChange",
+    "inputs": [
+      {
+        "name": "_newPayoutAmount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "queuedPayoutAmount",
     "inputs": [],
     "outputs": [
       {
         "name": "",
-        "type": "bytes32",
-        "internalType": "bytes32"
+        "type": "uint256",
+        "internalType": "uint256"
       }
     ],
     "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "renounceOwnership",
-    "inputs": [],
-    "outputs": [],
-    "stateMutability": "nonpayable"
   },
   {
     "type": "function",
@@ -150,60 +104,29 @@
   },
   {
     "type": "function",
-    "name": "setPayoutAmount",
-    "inputs": [
-      {
-        "name": "_newPayoutAmount",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
+    "name": "unpause",
+    "inputs": [],
     "outputs": [],
     "stateMutability": "nonpayable"
   },
   {
-    "type": "function",
-    "name": "setPayoutToken",
+    "type": "event",
+    "name": "FeesClaimed",
     "inputs": [
       {
-        "name": "_newPayoutToken",
+        "name": "caller",
         "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "transferOwnership",
-    "inputs": [
-      {
-        "name": "newOwner",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "upgradeToAndCall",
-    "inputs": [
-      {
-        "name": "newImplementation",
-        "type": "address",
+        "indexed": true,
         "internalType": "address"
       },
       {
-        "name": "data",
-        "type": "bytes",
-        "internalType": "bytes"
+        "name": "recipient",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
       }
     ],
-    "outputs": [],
-    "stateMutability": "payable"
+    "anonymous": false
   },
   {
     "type": "event",
@@ -238,57 +161,6 @@
   },
   {
     "type": "event",
-    "name": "FeesDonated",
-    "inputs": [
-      {
-        "name": "caller",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "amount",
-        "type": "uint256",
-        "indexed": false,
-        "internalType": "uint256"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "Initialized",
-    "inputs": [
-      {
-        "name": "version",
-        "type": "uint64",
-        "indexed": false,
-        "internalType": "uint64"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "OwnershipTransferred",
-    "inputs": [
-      {
-        "name": "previousOwner",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "newOwner",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
     "name": "PayoutAmountSet",
     "inputs": [
       {
@@ -308,51 +180,41 @@
   },
   {
     "type": "event",
-    "name": "PayoutTokenSet",
+    "name": "PayoutDonated",
     "inputs": [
       {
-        "name": "oldPayoutToken",
+        "name": "caller",
         "type": "address",
         "indexed": true,
         "internalType": "address"
       },
       {
-        "name": "newPayoutToken",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
       }
     ],
     "anonymous": false
   },
   {
     "type": "event",
-    "name": "Upgraded",
+    "name": "QueuedPayoutAmount",
     "inputs": [
       {
-        "name": "implementation",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
+        "name": "queuedPayoutAmount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "currentPayoutAmount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
       }
     ],
     "anonymous": false
-  },
-  {
-    "type": "error",
-    "name": "AddressEmptyCode",
-    "inputs": [
-      {
-        "name": "target",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "AlreadyInitialized",
-    "inputs": []
   },
   {
     "type": "error",
@@ -361,12 +223,7 @@
   },
   {
     "type": "error",
-    "name": "BlockDoesNotExist",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "BlockNotInBuffer",
+    "name": "CannotRecoverIncentiveToken",
     "inputs": []
   },
   {
@@ -381,28 +238,27 @@
   },
   {
     "type": "error",
-    "name": "DelegateStakedOverflow",
+    "name": "DepositNotMultipleOfGwei",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "ERC1967InvalidImplementation",
-    "inputs": [
-      {
-        "name": "implementation",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "ERC1967NonPayable",
+    "name": "DepositValueTooHigh",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "FailedInnerCall",
+    "name": "DonateAmountLessThanPayoutAmount",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "IncentiveRateTooHigh",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "IndexOutOfRange",
     "inputs": []
   },
   {
@@ -417,6 +273,11 @@
   },
   {
     "type": "error",
+    "name": "InsufficientDeposit",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InsufficientSelfStake",
     "inputs": []
   },
@@ -427,17 +288,27 @@
   },
   {
     "type": "error",
-    "name": "InvalidCommission",
+    "name": "InvalidActivateBoostDelay",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "InvalidCuttingBoardWeights",
+    "name": "InvalidBaseRate",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "InvalidInitialization",
+    "name": "InvalidBoostMultiplier",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidCredentialsLength",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidDropBoostDelay",
     "inputs": []
   },
   {
@@ -447,7 +318,37 @@
   },
   {
     "type": "error",
-    "name": "InvalidMinter",
+    "name": "InvalidMinBoostedRewardRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidProof",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidPubKeyLength",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardAllocationWeights",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardConvexity",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidSignatureLength",
     "inputs": []
   },
   {
@@ -457,22 +358,27 @@
   },
   {
     "type": "error",
+    "name": "InvalidateDefaultRewardAllocation",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvariantCheckFailed",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "MaxNumWeightsPerCuttingBoardIsZero",
+    "name": "MaxNumWeightsPerRewardAllocationIsZero",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NoWhitelistedTokens",
+    "name": "MinIncentiveRateIsZero",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotActionableBlock",
+    "name": "NotAContract",
     "inputs": []
   },
   {
@@ -507,7 +413,17 @@
   },
   {
     "type": "error",
+    "name": "NotEnoughBoostedBalance",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "NotEnoughTime",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotFactoryVault",
     "inputs": []
   },
   {
@@ -517,17 +433,12 @@
   },
   {
     "type": "error",
-    "name": "NotFriendOfTheChef",
+    "name": "NotIncentiveManager",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotGovernance",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotInitializing",
+    "name": "NotNewOperator",
     "inputs": []
   },
   {
@@ -537,40 +448,13 @@
   },
   {
     "type": "error",
-    "name": "NotProver",
+    "name": "NotWhitelistedVault",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "NotRootFollower",
+    "name": "OperatorAlreadySet",
     "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotValidatorOrOperator",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "OwnableInvalidOwner",
-    "inputs": [
-      {
-        "name": "owner",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "OwnableUnauthorizedAccount",
-    "inputs": [
-      {
-        "name": "account",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
   },
   {
     "type": "error",
@@ -579,17 +463,12 @@
   },
   {
     "type": "error",
-    "name": "PayoutTokenIsZero",
+    "name": "RewardAllocationAlreadyQueued",
     "inputs": []
   },
   {
     "type": "error",
-    "name": "QueuedCuttingBoardNotFound",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "QueuedCuttingBoardNotReady",
+    "name": "RewardAllocationBlockDelayTooLarge",
     "inputs": []
   },
   {
@@ -599,12 +478,17 @@
   },
   {
     "type": "error",
-    "name": "RewardCycleStarted",
+    "name": "RewardsDurationIsZero",
     "inputs": []
   },
   {
     "type": "error",
     "name": "StakeAmountIsZero",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "TimestampAlreadyProcessed",
     "inputs": []
   },
   {
@@ -629,44 +513,22 @@
   },
   {
     "type": "error",
-    "name": "UUPSUnauthorizedCallContext",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "UUPSUnsupportedProxiableUUID",
-    "inputs": [
-      {
-        "name": "slot",
-        "type": "bytes32",
-        "internalType": "bytes32"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "Unauthorized",
-    "inputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "VaultAlreadyExists",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "WithdrawAmountIsZero",
     "inputs": []
   },
   {
     "type": "error",
     "name": "ZeroAddress",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ZeroOperatorOnFirstDeposit",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ZeroPercentageWeight",
     "inputs": []
   }
 ]

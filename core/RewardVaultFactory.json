@@ -1,64 +1,115 @@
 [
   {
     "type": "function",
-    "name": "distributeFor",
-    "inputs": [
+    "name": "VAULT_MANAGER_ROLE",
+    "inputs": [],
+    "outputs": [
       {
-        "name": "nextTimestamp",
-        "type": "uint64",
-        "internalType": "uint64"
-      },
-      {
-        "name": "proposerIndex",
-        "type": "uint64",
-        "internalType": "uint64"
-      },
-      {
-        "name": "pubkey",
-        "type": "bytes",
-        "internalType": "bytes"
-      },
-      {
-        "name": "proposerIndexProof",
-        "type": "bytes32[]",
-        "internalType": "bytes32[]"
-      },
-      {
-        "name": "pubkeyProof",
-        "type": "bytes32[]",
-        "internalType": "bytes32[]"
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
       }
     ],
-    "outputs": [],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "VAULT_PAUSER_ROLE",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "allVaultsLength",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "createRewardVault",
+    "inputs": [
+      {
+        "name": "stakingToken",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
     "stateMutability": "nonpayable"
   },
   {
-    "type": "event",
-    "name": "Distributed",
+    "type": "function",
+    "name": "getVault",
     "inputs": [
       {
-        "name": "valPubkey",
-        "type": "bytes",
-        "indexed": true,
-        "internalType": "bytes"
-      },
+        "name": "stakingToken",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
       {
-        "name": "nextTimestamp",
-        "type": "uint64",
-        "indexed": true,
-        "internalType": "uint64"
-      },
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "predictRewardVaultAddress",
+    "inputs": [
       {
-        "name": "receiver",
+        "name": "stakingToken",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "event",
+    "name": "VaultCreated",
+    "inputs": [
+      {
+        "name": "stakingToken",
         "type": "address",
         "indexed": true,
         "internalType": "address"
       },
       {
-        "name": "amount",
-        "type": "uint256",
-        "indexed": false,
-        "internalType": "uint256"
+        "name": "vault",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
       }
     ],
     "anonymous": false

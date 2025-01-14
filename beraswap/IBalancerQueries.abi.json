@@ -1,0 +1,285 @@
+[
+  {
+    "type": "function",
+    "name": "queryBatchSwap",
+    "inputs": [
+      {
+        "name": "kind",
+        "type": "uint8",
+        "internalType": "enum IVault.SwapKind"
+      },
+      {
+        "name": "swaps",
+        "type": "tuple[]",
+        "internalType": "struct IVault.BatchSwapStep[]",
+        "components": [
+          {
+            "name": "poolId",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "assetInIndex",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "assetOutIndex",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "userData",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ]
+      },
+      {
+        "name": "assets",
+        "type": "address[]",
+        "internalType": "contract IAsset[]"
+      },
+      {
+        "name": "funds",
+        "type": "tuple",
+        "internalType": "struct IVault.FundManagement",
+        "components": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "fromInternalBalance",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "recipient",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "toInternalBalance",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "assetDeltas",
+        "type": "int256[]",
+        "internalType": "int256[]"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "queryExit",
+    "inputs": [
+      {
+        "name": "poolId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "sender",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "recipient",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "request",
+        "type": "tuple",
+        "internalType": "struct IVault.ExitPoolRequest",
+        "components": [
+          {
+            "name": "assets",
+            "type": "address[]",
+            "internalType": "contract IAsset[]"
+          },
+          {
+            "name": "minAmountsOut",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          },
+          {
+            "name": "userData",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "toInternalBalance",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "bptIn",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "amountsOut",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "queryJoin",
+    "inputs": [
+      {
+        "name": "poolId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "sender",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "recipient",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "request",
+        "type": "tuple",
+        "internalType": "struct IVault.JoinPoolRequest",
+        "components": [
+          {
+            "name": "assets",
+            "type": "address[]",
+            "internalType": "contract IAsset[]"
+          },
+          {
+            "name": "maxAmountsIn",
+            "type": "uint256[]",
+            "internalType": "uint256[]"
+          },
+          {
+            "name": "userData",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "fromInternalBalance",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "bptOut",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "amountsIn",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "querySwap",
+    "inputs": [
+      {
+        "name": "singleSwap",
+        "type": "tuple",
+        "internalType": "struct IVault.SingleSwap",
+        "components": [
+          {
+            "name": "poolId",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "kind",
+            "type": "uint8",
+            "internalType": "enum IVault.SwapKind"
+          },
+          {
+            "name": "assetIn",
+            "type": "address",
+            "internalType": "contract IAsset"
+          },
+          {
+            "name": "assetOut",
+            "type": "address",
+            "internalType": "contract IAsset"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "userData",
+            "type": "bytes",
+            "internalType": "bytes"
+          }
+        ]
+      },
+      {
+        "name": "funds",
+        "type": "tuple",
+        "internalType": "struct IVault.FundManagement",
+        "components": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "fromInternalBalance",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "recipient",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "toInternalBalance",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  }
+]
