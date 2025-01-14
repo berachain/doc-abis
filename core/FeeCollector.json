@@ -218,11 +218,6 @@
   },
   {
     "type": "error",
-    "name": "AlreadyInitialized",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "AmountLessThanMinIncentiveRate",
     "inputs": []
   },
@@ -353,11 +348,6 @@
   },
   {
     "type": "error",
-    "name": "InvalidRewardVaultAddress",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "InvalidSignatureLength",
     "inputs": []
   },
@@ -443,11 +433,6 @@
   },
   {
     "type": "error",
-    "name": "NotGovernance",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "NotIncentiveManager",
     "inputs": []
   },
@@ -459,11 +444,6 @@
   {
     "type": "error",
     "name": "NotOperator",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotRootFollower",
     "inputs": []
   },
   {
@@ -529,11 +509,6 @@
   {
     "type": "error",
     "name": "TotalSupplyOverflow",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "VaultAlreadyExists",
     "inputs": []
   },
   {

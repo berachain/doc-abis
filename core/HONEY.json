@@ -924,6 +924,11 @@
   },
   {
     "type": "error",
+    "name": "UnexpectedBasketModeStatus",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "VaultAlreadyRegistered",
     "inputs": [
       {

@@ -14,6 +14,19 @@
   },
   {
     "type": "function",
+    "name": "VAULT_PAUSER_ROLE",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "allVaultsLength",
     "inputs": [],
     "outputs": [
@@ -83,38 +96,6 @@
     "stateMutability": "view"
   },
   {
-    "type": "function",
-    "name": "setRewardVaultImplementation",
-    "inputs": [
-      {
-        "name": "_vaultImpl",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "event",
-    "name": "UpdateRewardVaultImplementation",
-    "inputs": [
-      {
-        "name": "oldVaultImpl",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "newVaultImpl",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      }
-    ],
-    "anonymous": false
-  },
-  {
     "type": "event",
     "name": "VaultCreated",
     "inputs": [
@@ -132,11 +113,6 @@
       }
     ],
     "anonymous": false
-  },
-  {
-    "type": "error",
-    "name": "AlreadyInitialized",
-    "inputs": []
   },
   {
     "type": "error",
@@ -270,11 +246,6 @@
   },
   {
     "type": "error",
-    "name": "InvalidRewardVaultAddress",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "InvalidSignatureLength",
     "inputs": []
   },
@@ -360,11 +331,6 @@
   },
   {
     "type": "error",
-    "name": "NotGovernance",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "NotIncentiveManager",
     "inputs": []
   },
@@ -376,11 +342,6 @@
   {
     "type": "error",
     "name": "NotOperator",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotRootFollower",
     "inputs": []
   },
   {
@@ -446,11 +407,6 @@
   {
     "type": "error",
     "name": "TotalSupplyOverflow",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "VaultAlreadyExists",
     "inputs": []
   },
   {

@@ -46,6 +46,11 @@
         "name": "receiver",
         "type": "address",
         "internalType": "address"
+      },
+      {
+        "name": "expectBasketMode",
+        "type": "bool",
+        "internalType": "bool"
       }
     ],
     "outputs": [
@@ -93,6 +98,11 @@
         "name": "receiver",
         "type": "address",
         "internalType": "address"
+      },
+      {
+        "name": "expectBasketMode",
+        "type": "bool",
+        "internalType": "bool"
       }
     ],
     "outputs": [

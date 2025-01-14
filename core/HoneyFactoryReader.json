@@ -124,7 +124,7 @@
   },
   {
     "type": "function",
-    "name": "previewHoneyToRedeem",
+    "name": "previewMintCollaterals",
     "inputs": [
       {
         "name": "asset",
@@ -132,23 +132,23 @@
         "internalType": "address"
       },
       {
-        "name": "exactAmount",
+        "name": "honey",
         "type": "uint256",
         "internalType": "uint256"
       }
     ],
     "outputs": [
       {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
+        "name": "amounts",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
       }
     ],
     "stateMutability": "view"
   },
   {
     "type": "function",
-    "name": "previewMint",
+    "name": "previewMintHoney",
     "inputs": [
       {
         "name": "asset",
@@ -163,7 +163,12 @@
     ],
     "outputs": [
       {
-        "name": "honeyAmount",
+        "name": "collaterals",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      },
+      {
+        "name": "honey",
         "type": "uint256",
         "internalType": "uint256"
       }
@@ -172,7 +177,7 @@
   },
   {
     "type": "function",
-    "name": "previewRedeem",
+    "name": "previewRedeemCollaterals",
     "inputs": [
       {
         "name": "asset",
@@ -180,33 +185,14 @@
         "internalType": "address"
       },
       {
-        "name": "honeyAmount",
+        "name": "honey",
         "type": "uint256",
         "internalType": "uint256"
       }
     ],
     "outputs": [
       {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "previewRedeemBasketMode",
-    "inputs": [
-      {
-        "name": "honeyAmount",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "res",
+        "name": "collaterals",
         "type": "uint256[]",
         "internalType": "uint256[]"
       }
@@ -215,7 +201,7 @@
   },
   {
     "type": "function",
-    "name": "previewRequiredCollateral",
+    "name": "previewRedeemHoney",
     "inputs": [
       {
         "name": "asset",
@@ -223,16 +209,21 @@
         "internalType": "address"
       },
       {
-        "name": "exactHoneyAmount",
+        "name": "amount",
         "type": "uint256",
         "internalType": "uint256"
       }
     ],
     "outputs": [
       {
-        "name": "res",
+        "name": "collaterals",
         "type": "uint256[]",
         "internalType": "uint256[]"
+      },
+      {
+        "name": "honey",
+        "type": "uint256",
+        "internalType": "uint256"
       }
     ],
     "stateMutability": "view"
@@ -668,6 +659,11 @@
         "internalType": "uint256"
       }
     ]
+  },
+  {
+    "type": "error",
+    "name": "UnexpectedBasketModeStatus",
+    "inputs": []
   },
   {
     "type": "error",

@@ -25,6 +25,19 @@
   },
   {
     "type": "function",
+    "name": "activateBoostDelay",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "allowance",
     "inputs": [
       {
@@ -326,6 +339,48 @@
   },
   {
     "type": "function",
+    "name": "dropBoostDelay",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "dropBoostQueue",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "pubkey",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "blockNumberLast",
+        "type": "uint32",
+        "internalType": "uint32"
+      },
+      {
+        "name": "balance",
+        "type": "uint128",
+        "internalType": "uint128"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "getPastTotalSupply",
     "inputs": [
       {
@@ -573,6 +628,19 @@
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "staker",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -1069,11 +1137,6 @@
   },
   {
     "type": "error",
-    "name": "AlreadyInitialized",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "AmountLessThanMinIncentiveRate",
     "inputs": []
   },
@@ -1204,11 +1267,6 @@
   },
   {
     "type": "error",
-    "name": "InvalidRewardVaultAddress",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "InvalidSignatureLength",
     "inputs": []
   },
@@ -1294,11 +1352,6 @@
   },
   {
     "type": "error",
-    "name": "NotGovernance",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "NotIncentiveManager",
     "inputs": []
   },
@@ -1310,11 +1363,6 @@
   {
     "type": "error",
     "name": "NotOperator",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NotRootFollower",
     "inputs": []
   },
   {
@@ -1380,11 +1428,6 @@
   {
     "type": "error",
     "name": "TotalSupplyOverflow",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "VaultAlreadyExists",
     "inputs": []
   },
   {
