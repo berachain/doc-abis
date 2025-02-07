@@ -1,853 +1,1190 @@
 [
   {
-    "type": "function",
-    "name": "activateReadyQueuedRewardAllocation",
-    "inputs": [
-      {
-        "name": "valPubkey",
-        "type": "bytes",
-        "internalType": "bytes"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "getActiveRewardAllocation",
-    "inputs": [
-      {
-        "name": "valPubkey",
-        "type": "bytes",
-        "internalType": "bytes"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "",
-        "type": "tuple",
-        "internalType": "struct IBeraChef.RewardAllocation",
-        "components": [
-          {
-            "name": "startBlock",
-            "type": "uint64",
-            "internalType": "uint64"
-          },
-          {
-            "name": "weights",
-            "type": "tuple[]",
-            "internalType": "struct IBeraChef.Weight[]",
-            "components": [
-              {
-                "name": "receiver",
-                "type": "address",
-                "internalType": "address"
-              },
-              {
-                "name": "percentageNumerator",
-                "type": "uint96",
-                "internalType": "uint96"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "getDefaultRewardAllocation",
     "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "tuple",
-        "internalType": "struct IBeraChef.RewardAllocation",
-        "components": [
-          {
-            "name": "startBlock",
-            "type": "uint64",
-            "internalType": "uint64"
-          },
-          {
-            "name": "weights",
-            "type": "tuple[]",
-            "internalType": "struct IBeraChef.Weight[]",
-            "components": [
-              {
-                "name": "receiver",
-                "type": "address",
-                "internalType": "address"
-              },
-              {
-                "name": "percentageNumerator",
-                "type": "uint96",
-                "internalType": "uint96"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "stateMutability": "view"
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   },
   {
-    "type": "function",
-    "name": "getQueuedRewardAllocation",
     "inputs": [
       {
-        "name": "valPubkey",
-        "type": "bytes",
-        "internalType": "bytes"
+        "internalType": "address",
+        "name": "target",
+        "type": "address"
       }
     ],
-    "outputs": [
-      {
-        "name": "",
-        "type": "tuple",
-        "internalType": "struct IBeraChef.RewardAllocation",
-        "components": [
-          {
-            "name": "startBlock",
-            "type": "uint64",
-            "internalType": "uint64"
-          },
-          {
-            "name": "weights",
-            "type": "tuple[]",
-            "internalType": "struct IBeraChef.Weight[]",
-            "components": [
-              {
-                "name": "receiver",
-                "type": "address",
-                "internalType": "address"
-              },
-              {
-                "name": "percentageNumerator",
-                "type": "uint96",
-                "internalType": "uint96"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "stateMutability": "view"
+    "name": "AddressEmptyCode",
+    "type": "error"
   },
   {
-    "type": "function",
-    "name": "getSetActiveRewardAllocation",
-    "inputs": [
-      {
-        "name": "valPubkey",
-        "type": "bytes",
-        "internalType": "bytes"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "",
-        "type": "tuple",
-        "internalType": "struct IBeraChef.RewardAllocation",
-        "components": [
-          {
-            "name": "startBlock",
-            "type": "uint64",
-            "internalType": "uint64"
-          },
-          {
-            "name": "weights",
-            "type": "tuple[]",
-            "internalType": "struct IBeraChef.Weight[]",
-            "components": [
-              {
-                "name": "receiver",
-                "type": "address",
-                "internalType": "address"
-              },
-              {
-                "name": "percentageNumerator",
-                "type": "uint96",
-                "internalType": "uint96"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "isQueuedRewardAllocationReady",
-    "inputs": [
-      {
-        "name": "valPubkey",
-        "type": "bytes",
-        "internalType": "bytes"
-      },
-      {
-        "name": "blockNumber",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool",
-        "internalType": "bool"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "isReady",
     "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool",
-        "internalType": "bool"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "queueNewRewardAllocation",
-    "inputs": [
-      {
-        "name": "valPubkey",
-        "type": "bytes",
-        "internalType": "bytes"
-      },
-      {
-        "name": "startBlock",
-        "type": "uint64",
-        "internalType": "uint64"
-      },
-      {
-        "name": "weights",
-        "type": "tuple[]",
-        "internalType": "struct IBeraChef.Weight[]",
-        "components": [
-          {
-            "name": "receiver",
-            "type": "address",
-            "internalType": "address"
-          },
-          {
-            "name": "percentageNumerator",
-            "type": "uint96",
-            "internalType": "uint96"
-          }
-        ]
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "setDefaultRewardAllocation",
-    "inputs": [
-      {
-        "name": "rewardAllocation",
-        "type": "tuple",
-        "internalType": "struct IBeraChef.RewardAllocation",
-        "components": [
-          {
-            "name": "startBlock",
-            "type": "uint64",
-            "internalType": "uint64"
-          },
-          {
-            "name": "weights",
-            "type": "tuple[]",
-            "internalType": "struct IBeraChef.Weight[]",
-            "components": [
-              {
-                "name": "receiver",
-                "type": "address",
-                "internalType": "address"
-              },
-              {
-                "name": "percentageNumerator",
-                "type": "uint96",
-                "internalType": "uint96"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "setMaxNumWeightsPerRewardAllocation",
-    "inputs": [
-      {
-        "name": "_maxNumWeightsPerRewardAllocation",
-        "type": "uint8",
-        "internalType": "uint8"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "setRewardAllocationBlockDelay",
-    "inputs": [
-      {
-        "name": "_rewardAllocationBlockDelay",
-        "type": "uint64",
-        "internalType": "uint64"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "setVaultWhitelistedStatus",
-    "inputs": [
-      {
-        "name": "receiver",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "isWhitelisted",
-        "type": "bool",
-        "internalType": "bool"
-      },
-      {
-        "name": "metadata",
-        "type": "string",
-        "internalType": "string"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "updateWhitelistedVaultMetadata",
-    "inputs": [
-      {
-        "name": "receiver",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "metadata",
-        "type": "string",
-        "internalType": "string"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "event",
-    "name": "ActivateRewardAllocation",
-    "inputs": [
-      {
-        "name": "valPubkey",
-        "type": "bytes",
-        "indexed": true,
-        "internalType": "bytes"
-      },
-      {
-        "name": "startBlock",
-        "type": "uint64",
-        "indexed": false,
-        "internalType": "uint64"
-      },
-      {
-        "name": "weights",
-        "type": "tuple[]",
-        "indexed": false,
-        "internalType": "struct IBeraChef.Weight[]",
-        "components": [
-          {
-            "name": "receiver",
-            "type": "address",
-            "internalType": "address"
-          },
-          {
-            "name": "percentageNumerator",
-            "type": "uint96",
-            "internalType": "uint96"
-          }
-        ]
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "MaxNumWeightsPerRewardAllocationSet",
-    "inputs": [
-      {
-        "name": "maxNumWeightsPerRewardAllocation",
-        "type": "uint8",
-        "indexed": false,
-        "internalType": "uint8"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "QueueRewardAllocation",
-    "inputs": [
-      {
-        "name": "valPubkey",
-        "type": "bytes",
-        "indexed": true,
-        "internalType": "bytes"
-      },
-      {
-        "name": "startBlock",
-        "type": "uint64",
-        "indexed": false,
-        "internalType": "uint64"
-      },
-      {
-        "name": "weights",
-        "type": "tuple[]",
-        "indexed": false,
-        "internalType": "struct IBeraChef.Weight[]",
-        "components": [
-          {
-            "name": "receiver",
-            "type": "address",
-            "internalType": "address"
-          },
-          {
-            "name": "percentageNumerator",
-            "type": "uint96",
-            "internalType": "uint96"
-          }
-        ]
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "RewardAllocationBlockDelaySet",
-    "inputs": [
-      {
-        "name": "rewardAllocationBlockDelay",
-        "type": "uint64",
-        "indexed": false,
-        "internalType": "uint64"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "SetDefaultRewardAllocation",
-    "inputs": [
-      {
-        "name": "rewardAllocation",
-        "type": "tuple",
-        "indexed": false,
-        "internalType": "struct IBeraChef.RewardAllocation",
-        "components": [
-          {
-            "name": "startBlock",
-            "type": "uint64",
-            "internalType": "uint64"
-          },
-          {
-            "name": "weights",
-            "type": "tuple[]",
-            "internalType": "struct IBeraChef.Weight[]",
-            "components": [
-              {
-                "name": "receiver",
-                "type": "address",
-                "internalType": "address"
-              },
-              {
-                "name": "percentageNumerator",
-                "type": "uint96",
-                "internalType": "uint96"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "VaultWhitelistedStatusUpdated",
-    "inputs": [
-      {
-        "name": "receiver",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "isWhitelisted",
-        "type": "bool",
-        "indexed": true,
-        "internalType": "bool"
-      },
-      {
-        "name": "metadata",
-        "type": "string",
-        "indexed": false,
-        "internalType": "string"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "WhitelistedVaultMetadataUpdated",
-    "inputs": [
-      {
-        "name": "receiver",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "metadata",
-        "type": "string",
-        "indexed": false,
-        "internalType": "string"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "error",
     "name": "AmountLessThanMinIncentiveRate",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "CannotRecoverIncentiveToken",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "CannotRecoverRewardToken",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "CannotRecoverStakingToken",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "DepositNotMultipleOfGwei",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "DepositValueTooHigh",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "DonateAmountLessThanPayoutAmount",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "implementation",
+        "type": "address"
+      }
+    ],
+    "name": "ERC1967InvalidImplementation",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ERC1967NonPayable",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "FailedCall",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "IncentiveRateTooHigh",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "IndexOutOfRange",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InsolventReward",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InsufficientDelegateStake",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InsufficientDeposit",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InsufficientSelfStake",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InsufficientStake",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidActivateBoostDelay",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidBaseRate",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidBoostMultiplier",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidCredentialsLength",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidDropBoostDelay",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
+    "name": "InvalidInitialization",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidMaxIncentiveTokensCount",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidMinBoostedRewardRate",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidProof",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidPubKeyLength",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidRewardAllocationWeights",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidRewardConvexity",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidRewardRate",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidSignatureLength",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidStartBlock",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvalidateDefaultRewardAllocation",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "InvariantCheckFailed",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "MaxNumWeightsPerRewardAllocationIsZero",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "MinIncentiveRateIsZero",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotAContract",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotApprovedSender",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotBGT",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotBlockRewardController",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotDelegate",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotDistributor",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotEnoughBalance",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotEnoughBoostedBalance",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotEnoughTime",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotFactoryVault",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotFeeCollector",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotIncentiveManager",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
+    "name": "NotInitializing",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "NotNewOperator",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotOperator",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "NotWhitelistedVault",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "OperatorAlreadySet",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnableInvalidOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "PayoutAmountIsZero",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "RewardAllocationAlreadyQueued",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "RewardAllocationBlockDelayTooLarge",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "RewardCycleNotEnded",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "RewardsDurationIsZero",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "StakeAmountIsZero",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "TimestampAlreadyProcessed",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "TokenAlreadyWhitelistedOrLimitReached",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "TokenNotWhitelisted",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "TooManyWeights",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "TotalSupplyOverflow",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
+    "name": "UUPSUnauthorizedCallContext",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "slot",
+        "type": "bytes32"
+      }
+    ],
+    "name": "UUPSUnsupportedProxiableUUID",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "WithdrawAmountIsZero",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "ZeroAddress",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "ZeroOperatorOnFirstDeposit",
-    "inputs": []
+    "type": "error"
   },
   {
-    "type": "error",
+    "inputs": [],
     "name": "ZeroPercentageWeight",
-    "inputs": []
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes",
+        "name": "valPubkey",
+        "type": "bytes"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "startBlock",
+        "type": "uint64"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "receiver",
+            "type": "address"
+          },
+          {
+            "internalType": "uint96",
+            "name": "percentageNumerator",
+            "type": "uint96"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct IBeraChef.Weight[]",
+        "name": "weights",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "ActivateRewardAllocation",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "version",
+        "type": "uint64"
+      }
+    ],
+    "name": "Initialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "maxNumWeightsPerRewardAllocation",
+        "type": "uint8"
+      }
+    ],
+    "name": "MaxNumWeightsPerRewardAllocationSet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes",
+        "name": "valPubkey",
+        "type": "bytes"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "startBlock",
+        "type": "uint64"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "receiver",
+            "type": "address"
+          },
+          {
+            "internalType": "uint96",
+            "name": "percentageNumerator",
+            "type": "uint96"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct IBeraChef.Weight[]",
+        "name": "weights",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "QueueRewardAllocation",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "rewardAllocationBlockDelay",
+        "type": "uint64"
+      }
+    ],
+    "name": "RewardAllocationBlockDelaySet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint64",
+            "name": "startBlock",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              },
+              {
+                "internalType": "uint96",
+                "name": "percentageNumerator",
+                "type": "uint96"
+              }
+            ],
+            "internalType": "struct IBeraChef.Weight[]",
+            "name": "weights",
+            "type": "tuple[]"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct IBeraChef.RewardAllocation",
+        "name": "rewardAllocation",
+        "type": "tuple"
+      }
+    ],
+    "name": "SetDefaultRewardAllocation",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "implementation",
+        "type": "address"
+      }
+    ],
+    "name": "Upgraded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bool",
+        "name": "isWhitelisted",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "metadata",
+        "type": "string"
+      }
+    ],
+    "name": "VaultWhitelistedStatusUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "metadata",
+        "type": "string"
+      }
+    ],
+    "name": "WhitelistedVaultMetadataUpdated",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "MAX_REWARD_ALLOCATION_BLOCK_DELAY",
+    "outputs": [
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "UPGRADE_INTERFACE_VERSION",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "valPubkey",
+        "type": "bytes"
+      }
+    ],
+    "name": "activateReadyQueuedRewardAllocation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "beaconDepositContract",
+    "outputs": [
+      {
+        "internalType": "contract IBeaconDeposit",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "distributor",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "factory",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "valPubkey",
+        "type": "bytes"
+      }
+    ],
+    "name": "getActiveRewardAllocation",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint64",
+            "name": "startBlock",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              },
+              {
+                "internalType": "uint96",
+                "name": "percentageNumerator",
+                "type": "uint96"
+              }
+            ],
+            "internalType": "struct IBeraChef.Weight[]",
+            "name": "weights",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct IBeraChef.RewardAllocation",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getDefaultRewardAllocation",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint64",
+            "name": "startBlock",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              },
+              {
+                "internalType": "uint96",
+                "name": "percentageNumerator",
+                "type": "uint96"
+              }
+            ],
+            "internalType": "struct IBeraChef.Weight[]",
+            "name": "weights",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct IBeraChef.RewardAllocation",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "valPubkey",
+        "type": "bytes"
+      }
+    ],
+    "name": "getQueuedRewardAllocation",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint64",
+            "name": "startBlock",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              },
+              {
+                "internalType": "uint96",
+                "name": "percentageNumerator",
+                "type": "uint96"
+              }
+            ],
+            "internalType": "struct IBeraChef.Weight[]",
+            "name": "weights",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct IBeraChef.RewardAllocation",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "valPubkey",
+        "type": "bytes"
+      }
+    ],
+    "name": "getSetActiveRewardAllocation",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint64",
+            "name": "startBlock",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              },
+              {
+                "internalType": "uint96",
+                "name": "percentageNumerator",
+                "type": "uint96"
+              }
+            ],
+            "internalType": "struct IBeraChef.Weight[]",
+            "name": "weights",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct IBeraChef.RewardAllocation",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_distributor",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_factory",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_governance",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_beaconDepositContract",
+        "type": "address"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_maxNumWeightsPerRewardAllocation",
+        "type": "uint8"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "valPubkey",
+        "type": "bytes"
+      },
+      {
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "isQueuedRewardAllocationReady",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "isReady",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+      }
+    ],
+    "name": "isWhitelistedVault",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "maxNumWeightsPerRewardAllocation",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "proxiableUUID",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "valPubkey",
+        "type": "bytes"
+      },
+      {
+        "internalType": "uint64",
+        "name": "startBlock",
+        "type": "uint64"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "receiver",
+            "type": "address"
+          },
+          {
+            "internalType": "uint96",
+            "name": "percentageNumerator",
+            "type": "uint96"
+          }
+        ],
+        "internalType": "struct IBeraChef.Weight[]",
+        "name": "weights",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "queueNewRewardAllocation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "rewardAllocationBlockDelay",
+    "outputs": [
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint64",
+            "name": "startBlock",
+            "type": "uint64"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              },
+              {
+                "internalType": "uint96",
+                "name": "percentageNumerator",
+                "type": "uint96"
+              }
+            ],
+            "internalType": "struct IBeraChef.Weight[]",
+            "name": "weights",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct IBeraChef.RewardAllocation",
+        "name": "ra",
+        "type": "tuple"
+      }
+    ],
+    "name": "setDefaultRewardAllocation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_maxNumWeightsPerRewardAllocation",
+        "type": "uint8"
+      }
+    ],
+    "name": "setMaxNumWeightsPerRewardAllocation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint64",
+        "name": "_rewardAllocationBlockDelay",
+        "type": "uint64"
+      }
+    ],
+    "name": "setRewardAllocationBlockDelay",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isWhitelisted",
+        "type": "bool"
+      },
+      {
+        "internalType": "string",
+        "name": "metadata",
+        "type": "string"
+      }
+    ],
+    "name": "setVaultWhitelistedStatus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "vault",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "metadata",
+        "type": "string"
+      }
+    ],
+    "name": "updateWhitelistedVaultMetadata",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newImplementation",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "upgradeToAndCall",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
   }
 ]
