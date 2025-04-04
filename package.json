@@ -1,0 +1,14 @@
+{
+  "name": "berachain-abis",
+  "version": "0.0.1",
+  "description": "Berchain Core ABI",
+  "scripts": {
+    "format": "pretty-quick"
+  },
+  "keywords": [],
+  "author": "berachain",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "pretty-quick": "^4.1.1"
+  }
+}
