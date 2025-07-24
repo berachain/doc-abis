@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Berchain Core ABI",
   "scripts": {
-    "format": "pretty-quick"
+    "format": "pretty-quick",
+    "abis:sync": "node manage-abis.js sync"
   },
   "keywords": [],
   "author": "berachain",

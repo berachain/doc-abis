@@ -1,0 +1,74 @@
+{
+  "directoryMapping": {
+    "bex": [
+      "IAuthentication",
+      "IAuthorizer",
+      "IAuthorizerAdaptor",
+      "IAuthorizerAdaptorEntrypoint",
+      "IBalancerHelpers",
+      "IBalancerMinter",
+      "IBalancerQueries",
+      "IBalancerRelayer",
+      "IBalancerToken",
+      "IBasePool",
+      "IBasePoolController",
+      "IBasePoolFactory",
+      "IComposableStablePoolFactoryCreateV6",
+      "IComposableStablePoolRates",
+      "IExternalWeightedMath",
+      "IFeeDistributor",
+      "IFlashLoanRecipient",
+      "IGeneralPool",
+      "ILinearPool",
+      "IManagedPool",
+      "IMinimalSwapInfoPool",
+      "IPoolCreationHelper",
+      "IProtocolFeePercentagesProvider",
+      "IProtocolFeeSplitter",
+      "IProtocolFeesCollector",
+      "IProtocolFeesWithdrawer",
+      "IRateProvider",
+      "IRateProviderPool",
+      "ITimelockAuthorizer",
+      "IVault",
+      "IWeightedPoolFactory"
+    ],
+    "core": [
+      "BeaconDeposit",
+      "BeraChef",
+      "BGT",
+      "BGTIncentiveDistributor",
+      "BGTStaker",
+      "BlockRewardController",
+      "Distributor",
+      "FeeCollector",
+      "HONEY",
+      "HoneyFactory",
+      "HoneyFactoryReader",
+      "Multicall3",
+      "RewardVault",
+      "RewardVaultFactory",
+      "StakingRewards",
+      "WBERA",
+      "WBERAStakerVault",
+      "BGTIncentiveDistributor",
+      "BGTIncentiveFeeCollector"
+    ],
+    "gov": [
+      "BerachainGovernance",
+      "Timelock"
+    ],
+    "misc": [
+      "ERC20"
+    ]
+  },
+  "blacklist": [
+    "Test",
+    "Mock",
+    "Helper",
+    "Script",
+    "Deploy",
+    ".t.sol",
+    ".s.sol"
+  ]
+} 
