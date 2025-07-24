@@ -32,19 +32,6 @@
   },
   {
     "type": "function",
-    "name": "MAX_REWARD_CLAIM_DELAY",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint64",
-        "internalType": "uint64"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
     "name": "PAUSER_ROLE",
     "inputs": [],
     "outputs": [
@@ -71,62 +58,34 @@
   },
   {
     "type": "function",
-    "name": "claim",
-    "inputs": [
-      {
-        "name": "_claims",
-        "type": "tuple[]",
-        "internalType": "struct IBGTIncentiveDistributor.Claim[]",
-        "components": [
-          {
-            "name": "identifier",
-            "type": "bytes32",
-            "internalType": "bytes32"
-          },
-          {
-            "name": "account",
-            "type": "address",
-            "internalType": "address"
-          },
-          {
-            "name": "amount",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "merkleProof",
-            "type": "bytes32[]",
-            "internalType": "bytes32[]"
-          }
-        ]
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "claimed",
-    "inputs": [
-      {
-        "name": "",
-        "type": "bytes32",
-        "internalType": "bytes32"
-      },
+    "name": "WBERA",
+    "inputs": [],
+    "outputs": [
       {
         "name": "",
         "type": "address",
         "internalType": "address"
       }
     ],
-    "outputs": [
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "claimFees",
+    "inputs": [
       {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
+        "name": "_recipient",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_feeTokens",
+        "type": "address[]",
+        "internalType": "address[]"
       }
     ],
-    "stateMutability": "view"
+    "outputs": [],
+    "stateMutability": "nonpayable"
   },
   {
     "type": "function",
@@ -191,38 +150,31 @@
   },
   {
     "type": "function",
-    "name": "incentiveTokensPerValidator",
-    "inputs": [
-      {
-        "name": "",
-        "type": "bytes",
-        "internalType": "bytes"
-      },
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
     "name": "initialize",
     "inputs": [
       {
-        "name": "_governance",
+        "name": "governance",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_payoutAmount",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_wberaStakerVault",
         "type": "address",
         "internalType": "address"
       }
     ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "pause",
+    "inputs": [],
     "outputs": [],
     "stateMutability": "nonpayable"
   },
@@ -235,6 +187,19 @@
         "name": "",
         "type": "bool",
         "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "payoutAmount",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
       }
     ],
     "stateMutability": "view"
@@ -254,26 +219,29 @@
   },
   {
     "type": "function",
-    "name": "receiveIncentive",
+    "name": "queuePayoutAmountChange",
     "inputs": [
       {
-        "name": "pubkey",
-        "type": "bytes",
-        "internalType": "bytes"
-      },
-      {
-        "name": "token",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "_amount",
+        "name": "_newPayoutAmount",
         "type": "uint256",
         "internalType": "uint256"
       }
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "queuedPayoutAmount",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -313,84 +281,6 @@
   },
   {
     "type": "function",
-    "name": "rewardClaimDelay",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint64",
-        "internalType": "uint64"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "rewards",
-    "inputs": [
-      {
-        "name": "",
-        "type": "bytes32",
-        "internalType": "bytes32"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "token",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "merkleRoot",
-        "type": "bytes32",
-        "internalType": "bytes32"
-      },
-      {
-        "name": "proof",
-        "type": "bytes32",
-        "internalType": "bytes32"
-      },
-      {
-        "name": "activeAt",
-        "type": "uint256",
-        "internalType": "uint256"
-      },
-      {
-        "name": "pubkey",
-        "type": "bytes",
-        "internalType": "bytes"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "setPauseState",
-    "inputs": [
-      {
-        "name": "state",
-        "type": "bool",
-        "internalType": "bool"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "setRewardClaimDelay",
-    "inputs": [
-      {
-        "name": "_delay",
-        "type": "uint64",
-        "internalType": "uint64"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
     "name": "supportsInterface",
     "inputs": [
       {
@@ -410,41 +300,8 @@
   },
   {
     "type": "function",
-    "name": "updateRewardsMetadata",
-    "inputs": [
-      {
-        "name": "_distributions",
-        "type": "tuple[]",
-        "internalType": "struct IBGTIncentiveDistributor.Distribution[]",
-        "components": [
-          {
-            "name": "identifier",
-            "type": "bytes32",
-            "internalType": "bytes32"
-          },
-          {
-            "name": "pubkey",
-            "type": "bytes",
-            "internalType": "bytes"
-          },
-          {
-            "name": "token",
-            "type": "address",
-            "internalType": "address"
-          },
-          {
-            "name": "merkleRoot",
-            "type": "bytes32",
-            "internalType": "bytes32"
-          },
-          {
-            "name": "proof",
-            "type": "bytes32",
-            "internalType": "bytes32"
-          }
-        ]
-      }
-    ],
+    "name": "unpause",
+    "inputs": [],
     "outputs": [],
     "stateMutability": "nonpayable"
   },
@@ -467,17 +324,36 @@
     "stateMutability": "payable"
   },
   {
+    "type": "function",
+    "name": "wberaStakerVault",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
     "type": "event",
-    "name": "IncentiveReceived",
+    "name": "IncentiveFeeTokenClaimed",
     "inputs": [
       {
-        "name": "pubkey",
-        "type": "bytes",
+        "name": "caller",
+        "type": "address",
         "indexed": true,
-        "internalType": "bytes"
+        "internalType": "address"
       },
       {
-        "name": "token",
+        "name": "recipient",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "feeToken",
         "type": "address",
         "indexed": true,
         "internalType": "address"
@@ -487,6 +363,25 @@
         "type": "uint256",
         "indexed": false,
         "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "IncentiveFeesClaimed",
+    "inputs": [
+      {
+        "name": "caller",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "recipient",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
       }
     ],
     "anonymous": false
@@ -519,49 +414,18 @@
   },
   {
     "type": "event",
-    "name": "RewardClaimDelaySet",
+    "name": "PayoutAmountSet",
     "inputs": [
       {
-        "name": "delay",
-        "type": "uint64",
-        "indexed": false,
-        "internalType": "uint64"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "RewardClaimed",
-    "inputs": [
-      {
-        "name": "identifier",
-        "type": "bytes32",
-        "indexed": true,
-        "internalType": "bytes32"
-      },
-      {
-        "name": "token",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "account",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "pubkey",
-        "type": "bytes",
-        "indexed": false,
-        "internalType": "bytes"
-      },
-      {
-        "name": "amount",
+        "name": "oldPayoutAmount",
         "type": "uint256",
-        "indexed": false,
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "newPayoutAmount",
+        "type": "uint256",
+        "indexed": true,
         "internalType": "uint256"
       }
     ],
@@ -569,40 +433,16 @@
   },
   {
     "type": "event",
-    "name": "RewardMetadataUpdated",
+    "name": "QueuedPayoutAmount",
     "inputs": [
       {
-        "name": "identifier",
-        "type": "bytes32",
-        "indexed": true,
-        "internalType": "bytes32"
-      },
-      {
-        "name": "pubkey",
-        "type": "bytes",
-        "indexed": true,
-        "internalType": "bytes"
-      },
-      {
-        "name": "token",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "merkleRoot",
-        "type": "bytes32",
+        "name": "queuedPayoutAmount",
+        "type": "uint256",
         "indexed": false,
-        "internalType": "bytes32"
+        "internalType": "uint256"
       },
       {
-        "name": "proof",
-        "type": "bytes32",
-        "indexed": false,
-        "internalType": "bytes32"
-      },
-      {
-        "name": "activeAt",
+        "name": "currentPayoutAmount",
         "type": "uint256",
         "indexed": false,
         "internalType": "uint256"
@@ -1133,11 +973,6 @@
   {
     "type": "error",
     "name": "PayoutAmountIsZero",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "ReentrancyGuardReentrantCall",
     "inputs": []
   },
   {

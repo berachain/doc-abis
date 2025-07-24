@@ -390,6 +390,25 @@
   },
   {
     "type": "function",
+    "name": "getTimelockOperationId",
+    "inputs": [
+      {
+        "name": "proposalId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "operationId",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "getVotes",
     "inputs": [
       {
@@ -512,6 +531,33 @@
         "name": "_timelock",
         "type": "address",
         "internalType": "contract TimelockControllerUpgradeable"
+      },
+      {
+        "name": "params",
+        "type": "tuple",
+        "internalType": "struct InitialGovernorParameters",
+        "components": [
+          {
+            "name": "proposalThreshold",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "quorumNumeratorValue",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "votingDelay",
+            "type": "uint48",
+            "internalType": "uint48"
+          },
+          {
+            "name": "votingPeriod",
+            "type": "uint32",
+            "internalType": "uint32"
+          }
+        ]
       }
     ],
     "outputs": [],
@@ -663,19 +709,6 @@
   },
   {
     "type": "function",
-    "name": "owner",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
     "name": "proposalCount",
     "inputs": [],
     "outputs": [
@@ -718,22 +751,22 @@
     ],
     "outputs": [
       {
-        "name": "",
+        "name": "targets",
         "type": "address[]",
         "internalType": "address[]"
       },
       {
-        "name": "",
+        "name": "values",
         "type": "uint256[]",
         "internalType": "uint256[]"
       },
       {
-        "name": "",
+        "name": "calldatas",
         "type": "bytes[]",
         "internalType": "bytes[]"
       },
       {
-        "name": "",
+        "name": "descriptionHash",
         "type": "bytes32",
         "internalType": "bytes32"
       }
@@ -752,27 +785,27 @@
     ],
     "outputs": [
       {
-        "name": "",
+        "name": "proposalId",
         "type": "uint256",
         "internalType": "uint256"
       },
       {
-        "name": "",
+        "name": "targets",
         "type": "address[]",
         "internalType": "address[]"
       },
       {
-        "name": "",
+        "name": "values",
         "type": "uint256[]",
         "internalType": "uint256[]"
       },
       {
-        "name": "",
+        "name": "calldatas",
         "type": "bytes[]",
         "internalType": "bytes[]"
       },
       {
-        "name": "",
+        "name": "descriptionHash",
         "type": "bytes32",
         "internalType": "bytes32"
       }
@@ -1080,13 +1113,6 @@
   },
   {
     "type": "function",
-    "name": "renounceOwnership",
-    "inputs": [],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
     "name": "setProposalThreshold",
     "inputs": [
       {
@@ -1190,19 +1216,6 @@
   },
   {
     "type": "function",
-    "name": "transferOwnership",
-    "inputs": [
-      {
-        "name": "newOwner",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
     "name": "updateQuorumNumerator",
     "inputs": [
       {
@@ -1299,25 +1312,6 @@
         "type": "uint64",
         "indexed": false,
         "internalType": "uint64"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "OwnershipTransferred",
-    "inputs": [
-      {
-        "name": "previousOwner",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "newOwner",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
       }
     ],
     "anonymous": false
@@ -1650,7 +1644,7 @@
   },
   {
     "type": "error",
-    "name": "FailedInnerCall",
+    "name": "FailedCall",
     "inputs": []
   },
   {
@@ -1751,6 +1745,11 @@
   },
   {
     "type": "error",
+    "name": "GovernorInvalidVoteParams",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "GovernorInvalidVoteType",
     "inputs": []
   },
@@ -1848,6 +1847,11 @@
   },
   {
     "type": "error",
+    "name": "GovernorZeroVoteWeight",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvalidAccountNonce",
     "inputs": [
       {
@@ -1870,38 +1874,6 @@
   {
     "type": "error",
     "name": "NotInitializing",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "OwnableInvalidOwner",
-    "inputs": [
-      {
-        "name": "owner",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "OwnableUnauthorizedAccount",
-    "inputs": [
-      {
-        "name": "account",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "QueueEmpty",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "QueueFull",
     "inputs": []
   },
   {

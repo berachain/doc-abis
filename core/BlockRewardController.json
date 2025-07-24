@@ -1,5 +1,88 @@
 [
   {
+    "type": "constructor",
+    "inputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "MAX_BASE_RATE",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "MAX_BOOST_MULTIPLIER",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "MAX_MIN_BOOSTED_REWARD_RATE",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "MAX_REWARD_CONVEXITY",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "MAX_REWARD_RATE",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "UPGRADE_INTERFACE_VERSION",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
     "type": "function",
     "name": "baseRate",
     "inputs": [],
@@ -8,6 +91,32 @@
         "name": "",
         "type": "uint256",
         "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "beaconDepositContract",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IBeaconDeposit"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "bgt",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract BGT"
       }
     ],
     "stateMutability": "view"
@@ -52,12 +161,66 @@
     ],
     "outputs": [
       {
-        "name": "",
+        "name": "reward",
         "type": "uint256",
         "internalType": "uint256"
       }
     ],
     "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "name": "distributor",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getMaxBGTPerBlock",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "initialize",
+    "inputs": [
+      {
+        "name": "_bgt",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_distributor",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_beaconDepositContract",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_governance",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
   },
   {
     "type": "function",
@@ -68,6 +231,19 @@
         "name": "",
         "type": "uint256",
         "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "owner",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
       }
     ],
     "stateMutability": "view"
@@ -99,6 +275,26 @@
         "internalType": "uint256"
       }
     ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "proxiableUUID",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "renounceOwnership",
+    "inputs": [],
+    "outputs": [],
     "stateMutability": "nonpayable"
   },
   {
@@ -206,6 +402,37 @@
     "stateMutability": "nonpayable"
   },
   {
+    "type": "function",
+    "name": "transferOwnership",
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "upgradeToAndCall",
+    "inputs": [
+      {
+        "name": "newImplementation",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
     "type": "event",
     "name": "BaseRateChanged",
     "inputs": [
@@ -276,6 +503,19 @@
   },
   {
     "type": "event",
+    "name": "Initialized",
+    "inputs": [
+      {
+        "name": "version",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
     "name": "MinBoostedRewardRateChanged",
     "inputs": [
       {
@@ -289,6 +529,25 @@
         "type": "uint256",
         "indexed": false,
         "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "OwnershipTransferred",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
       }
     ],
     "anonymous": false
@@ -345,6 +604,30 @@
     "anonymous": false
   },
   {
+    "type": "event",
+    "name": "Upgraded",
+    "inputs": [
+      {
+        "name": "implementation",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "AddressEmptyCode",
+    "inputs": [
+      {
+        "name": "target",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
     "type": "error",
     "name": "AmountLessThanMinIncentiveRate",
     "inputs": []
@@ -366,6 +649,16 @@
   },
   {
     "type": "error",
+    "name": "CommissionChangeAlreadyQueued",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CommissionNotQueuedOrDelayNotPassed",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "DepositNotMultipleOfGwei",
     "inputs": []
   },
@@ -377,6 +670,43 @@
   {
     "type": "error",
     "name": "DonateAmountLessThanPayoutAmount",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "DuplicateReceiver",
+    "inputs": [
+      {
+        "name": "receiver",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "DurationChangeNotAllowed",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ERC1967InvalidImplementation",
+    "inputs": [
+      {
+        "name": "implementation",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ERC1967NonPayable",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "FailedCall",
     "inputs": []
   },
   {
@@ -406,6 +736,16 @@
   },
   {
     "type": "error",
+    "name": "InsufficientIncentiveTokens",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InsufficientNativeValue",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InsufficientSelfStake",
     "inputs": []
   },
@@ -421,6 +761,11 @@
   },
   {
     "type": "error",
+    "name": "InvalidArray",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvalidBaseRate",
     "inputs": []
   },
@@ -431,7 +776,22 @@
   },
   {
     "type": "error",
+    "name": "InvalidCommissionChangeDelay",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidCommissionValue",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvalidCredentialsLength",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidDistribution",
     "inputs": []
   },
   {
@@ -441,7 +801,32 @@
   },
   {
     "type": "error",
+    "name": "InvalidIncentiveFeeRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidIncentiveRate",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidInitialization",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvalidMaxIncentiveTokensCount",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidMaxWeightPerVault",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidMerkleRoot",
     "inputs": []
   },
   {
@@ -466,7 +851,17 @@
   },
   {
     "type": "error",
+    "name": "InvalidRewardClaimDelay",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "InvalidRewardConvexity",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidRewardDuration",
     "inputs": []
   },
   {
@@ -482,6 +877,16 @@
   {
     "type": "error",
     "name": "InvalidStartBlock",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidToken",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidWeight",
     "inputs": []
   },
   {
@@ -566,12 +971,27 @@
   },
   {
     "type": "error",
+    "name": "NotInitializing",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "NotNewOperator",
     "inputs": []
   },
   {
     "type": "error",
     "name": "NotOperator",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotRewardDurationManager",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotRewardVaultManager",
     "inputs": []
   },
   {
@@ -583,6 +1003,28 @@
     "type": "error",
     "name": "OperatorAlreadySet",
     "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "OwnableInvalidOwner",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "OwnableUnauthorizedAccount",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
   },
   {
     "type": "error",
@@ -602,6 +1044,16 @@
   {
     "type": "error",
     "name": "RewardCycleNotEnded",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "RewardDurationCoolDownPeriodNotPassed",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "RewardInactive",
     "inputs": []
   },
   {
@@ -641,7 +1093,43 @@
   },
   {
     "type": "error",
+    "name": "UUPSUnauthorizedCallContext",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "UUPSUnsupportedProxiableUUID",
+    "inputs": [
+      {
+        "name": "slot",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "UnauthorizedETHTransfer",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "WithdrawAmountIsZero",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "WithdrawalAlreadyRequested",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "WithdrawalNotReady",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "WithdrawalNotRequested",
     "inputs": []
   },
   {
