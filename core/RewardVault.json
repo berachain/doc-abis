@@ -223,6 +223,29 @@
   },
   {
     "type": "function",
+    "name": "getPartialReward",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "recipient",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
     "name": "getReward",
     "inputs": [
       {
@@ -791,6 +814,24 @@
   },
   {
     "type": "function",
+    "name": "stakeOnBehalf",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
     "name": "stakeToken",
     "inputs": [],
     "outputs": [
@@ -1099,6 +1140,25 @@
   {
     "type": "event",
     "name": "IncentiveFeeCollected",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "IncentiveFeeCollectionFailed",
     "inputs": [
       {
         "name": "token",
@@ -1475,6 +1535,11 @@
       }
     ],
     "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "AmountGreaterThanReward",
+    "inputs": []
   },
   {
     "type": "error",

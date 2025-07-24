@@ -622,6 +622,11 @@
   },
   {
     "type": "error",
+    "name": "AmountGreaterThanReward",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "AmountLessThanMinIncentiveRate",
     "inputs": []
   },
